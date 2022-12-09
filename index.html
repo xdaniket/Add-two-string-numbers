@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //
+
+  // Q: Sum of two string numbers ?
+
+  // Step 1. Create a function and pass given string as a parameter,
+  // Step 2. Create a blank string for storing the output,
+  // Step 3. And in new variable set the initial value of carry is 0,
+  // Step 4. Ittrate a reverse loop on the string,
+  // Step 5. Use charAt method for getting the number inside an string,
+  // Step 6. Than add the numbers from back side and get the carry by /10,and add a carry with them,
+  // Step 7. And assign the final value in blank string,
+  //
+
+  //                  +++++++++++++++++++++++++++++++++++++++++++++++                //
+
+  if (first.length >= second.length) {
+    findSum(first, second);
+  } else {
+    findSum(second, first);
+  }
+
+  const findSum = (first, second) => {
+    let sum = "";
+    let carry = 0;
+    let diff = second.length - first.length;
+    for (let i = first.length - 1; i >= 0; i--) {
+      var temp =
+        (first.charAt(i) % 10) + (second.charAt(i + diff) % 10) + carry;
+      if (temp >= 10) {
+        sum = (temp % 10) + sum;
+        carry = Math.floor(temp / 10);
+      } else {
+        sum = temp + sum;
+        carry = 0;
+      }
+    }
+    return sum;
+  };
+  console.log(findSum("30", "280"));
+
+  //                  +++++++++++++++++++++++++++++++++++++++++++++++                //
+
+  const getSum = (num1, num2) => {
+    let result = "";
+    num1 = num1 * 1;
+    num2 = num2 * 1;
+    result += num1 + num2;
+    return result;
+  };
+
+  console.log(getSum("22", "33")); // In longer number this method will not work properly.
+</script>
